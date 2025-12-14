@@ -1,26 +1,32 @@
-# Mini-AI-Pipeline-Project
+# Mini AI Pipeline Project: News Headline Classification
 
-# Task Deifinition and Problem Statement
+## 1. Task Description and Motivation
+This project aims to classify news headlines into four categories:
+World, Sports, Business, and Sci/Tech. The task is useful for
+automatically organizing news articles in large-scale news platforms.
 
-Task:
-Classify news headlines into one of four categories-
-World
-Sports
-Business
-Sci/Tech
+## 2. Dataset
+We use a subset of the AG News dataset from Hugging Face. A total of
+2,500 samples were used, with 2,000 for training and 500 for testing.
+All text was lowercased and truncated to 128 tokens.
 
-Input:
-A single news headline (short text)
+## 3. Naïve Baseline
+The baseline classifier uses keyword-based rules to detect Sports,
+Business, and Sci/Tech headlines. Headlines that do not match any
+keywords are classified as World.
 
-Output:
-One category label
+## 4. AI Pipeline
+Our AI pipeline uses DistilBERT as a pre-trained encoder, followed by
+a classification head. The pipeline consists of tokenization,
+representation, and decision stages.
 
-Motivation:
-Automatic news categorization helps organize large volumes of online news and improves user experience in news aggregation systems.
+## 5. Evaluation and Results
+| Method | Accuracy | F1 |
+|--------|----------|----|
+| Baseline | 0.380 | 0.403 |
+| DistilBERT | 0.878 | 0.879 |
 
-Success Criteria:
-Higher accuracy and F1-score than a naïve baseline
-Consistent improvement across all categories
-
-# Reflection
-The keyword-based baseline performed worse than expected on ambiguous headlines, especially when words like “Apple” or “Amazon” appeared outside their usual contexts. The transformer-based model significantly improved performance by capturing semantic meaning rather than relying on surface-level keywords. However, training required more computational resources and careful tokenization. Accuracy and F1-score were useful metrics, but they did not fully reflect model confidence or uncertainty. One limitation of this project is the small dataset size, which may limit generalization. Given more time, I would experiment with data augmentation or compare multiple pre-trained models.
+## 6. Reflection and Limitations
+The keyword-based baseline struggled with ambiguous headlines. The
+Transformer-based model performed significantly better by capturing
+semantic context. However, the small dataset limits generalization.
