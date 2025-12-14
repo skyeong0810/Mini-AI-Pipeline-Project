@@ -1,5 +1,7 @@
 # Mini-AI-Pipeline-Project
 
+# Task Deifinitionn and Problem Statement
+
 Task:
 Classify news headlines into one of four categories-
 World
